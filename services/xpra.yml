@@ -1,0 +1,16 @@
+version: "3"
+services:
+  desktop:
+    image: jare/x11-bridge
+    volumes:
+      - display:/tmp/.X11-unix
+    environment:
+      - MODE=tcp
+      - XPRA_HTML="yes"
+      - XPRA_PASSWORD=123
+      - VIRTUAL_HOST=desktop.$FQDN
+      - VIRTUAL_PORT=10000
+    env_file:
+      - env/display.env
+volumes:
+  display:

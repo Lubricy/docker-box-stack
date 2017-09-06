@@ -1,0 +1,11 @@
+version: "3"
+services:
+  emacs:
+    image: spacemacs/emacs25:develop
+    command: ["emacs", "-mm"]
+    volumes:
+      - display:/tmp/.X11-unix
+    env_file:
+      - env/display.env
+volumes:
+  display:
